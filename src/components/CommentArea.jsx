@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { MDBSpinner } from 'mdb-react-ui-kit';
+import { MDBSpinner, MDBListGroupItem } from 'mdb-react-ui-kit';
 import AddComment from './AddComment';
 import CommentList from './CommentList';
 
@@ -38,9 +38,7 @@ export default function CommentArea({asin }) {
 commenti();
     }, [asin, Urlget])
 
-    useEffect(() => {
-        console.log(lista);
-    }, [lista]);
+  
 
 
 //  CREATE - post
@@ -153,17 +151,17 @@ const cancellaRecensione = (_id) => {
             
                 <AddComment setValoreInput={setValoreInput} valoreInput={valoreInput} setRating={setRating} rating={rating} creaRecensione={creaRecensione} />
                     <h6 className='mt-1'>Recensioni</h6>
-            <div className="square border border-5">
+            <div className="square border border-secondary">
                 <div className='flex-column justify-content-start align-items-center gap-1'>
                 
                     {caricamento && <div> <MDBSpinner color='primary'>
                     <span className='visually-hidden'>Caricamento...</span>
                     </MDBSpinner> </div> }
-                    <ul className='m-1'>
+                    <MDBListGroupItem className='m-1'>
                         {lista.map((elementolista) => (
                         <CommentList elementolista={elementolista} modificadati={modificadati} cancellaRecensione={cancellaRecensione} />
                         ))}
-                    </ul>
+                    </MDBListGroupItem>
 
 
                 </div>

@@ -1,4 +1,5 @@
 import React from 'react'
+import { MDBInput } from 'mdb-react-ui-kit';
 
 
 export default function Cerca ({search, handleInputChange}) {
@@ -15,11 +16,13 @@ export default function Cerca ({search, handleInputChange}) {
    
 return (
 <form className="search-form mt-4">
-<input
+<MDBInput
   type="text"
   value={ search } // inserisco il valore della variabile search
   onChange={handleInputChange} // avvio funzione handl
   placeholder="Cerca un libro..."
+  style={{backgroundColor: "white"}}
+  autoFocus
 />
 </form>
 )
